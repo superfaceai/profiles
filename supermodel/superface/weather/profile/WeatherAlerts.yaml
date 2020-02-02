@@ -1,0 +1,52 @@
+$id: http://supermodel.io/superface/weather/profile/WeatherAlerts
+$schema: http://superschema.org/draft-01/schema#
+
+title: Weather Alerts
+description: Weather Alerts profile description
+type: profile
+
+affordances:
+  RetrieveAlert:
+    type: safe
+    description: Retrieves alert at given address locality
+    in:
+      addressLocality:
+        $ref: http://supermodel.io/schemaorg/properties/addressLocality
+      latitude:
+        type: http://supermodel.io/schemaorg/properties/latitude
+      longitude:
+        type: http://supermodel.io/schemaorg/properties/longitude
+    rt:
+      $ref: '#/definitions/ActualWeatherAlert'
+
+definitions:
+  ActualWeatherAlert:
+    type: object
+    properties:
+      title:
+        type: string
+        description: A brief description of the alert.
+
+      description:
+        type: string
+        description: A detailed description of the alert.
+
+      severity:
+        type: string
+        description: >
+          The severity of the weather alert. Will take one of the following values:
+          - `advisory` (an individual should be aware of potentially severe weather)
+          - `watch` (an individual should prepare for potentially severe weather)
+          - `warning` (an individual should take immediate action to protect themselves and others from potentially severe weather).
+
+        enum: 
+          - advisory
+          - watch
+          - warning
+
+      startDate:        
+        $ref: http://supermodel.io/schemaorg/properties/startDate
+
+      endDate:
+        $ref: http://supermodel.io/schemaorg/properties/endDate
+

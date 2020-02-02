@@ -1,0 +1,27 @@
+$id: http://supermodel.io/superface/CRM/profile/Customers
+$schema: http://superschema.org/draft-01/schema#
+
+title: Customers
+description: Customers (Client) information within a customer relationship management system (CRM)
+type: profile
+
+affordances:
+  RetrieveCustomers:
+    title: Retrieve Customers
+    description: >
+      Retrieves all client records from a CRM, optionally retrieves clients created only since a specified date and time.
+    type: safe
+
+    in:
+      since:
+        description: >
+          Optional timestamp. When provided, only the clients created after (inclusive) this timestamp are returned.
+        oneOf:
+          - $ref: 'http://supermodel.io/schemaorg/DateTime'
+          - $ref: 'http://supermodel.io/schemaorg/Date'
+        examples:
+          - '2018-03-02T07:53:47Z'
+          - '2018-03-02'
+
+    rt:
+      $ref: 'http://supermodel.io/adderpositive/Client'
