@@ -6,6 +6,7 @@ description: Customers (Client) information within a customer relationship manag
 type: profile
 
 affordances:
+
   RetrieveCustomers:
     title: Retrieve Customers
     description: >
@@ -24,4 +25,10 @@ affordances:
           - '2018-03-02'
 
     rt:
-      $ref: 'http://supermodel.io/adderpositive/Client'
+      id: 
+        type: string
+      name: 
+        type: string
+      website:
+        type: string
+      
